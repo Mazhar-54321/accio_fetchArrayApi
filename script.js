@@ -1,11 +1,15 @@
 var tbody = document.getElementById("tbody")
 function fetchData(){
  promise1().then((res)=>{
+    if(res)
     return promise2()
  }).then((res)=>{
+    if(res)
     return promise3()
  }).then((res)=>{
-
+       if(res){
+        alert("Data displayed successfully")
+       }
  })
 }
 function promise1(){
@@ -20,7 +24,7 @@ function promise1(){
         }).join("")
         tbody.innerHTML+=data;
         console.log(data,"data")
-        resolve(res);
+        resolve(true);
        })
     },1000)
  })
@@ -37,7 +41,7 @@ function promise2(){
             }).join("")
             tbody.innerHTML+=data;
             console.log(data,"data")
-            resolve(res);
+            resolve(true);
            })
         },2000)
      })
@@ -54,7 +58,7 @@ function promise3(){
             }).join("")
             tbody.innerHTML += data;
             console.log(data,"data")
-            resolve(res);
+            resolve(true);
            })
         },3000)
      })
